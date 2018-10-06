@@ -1,0 +1,3 @@
+il_core_homepage:
+    path:     /
+    defaults: { _controller: ILBackBundle:Back:index }

@@ -1,0 +1,129 @@
+{% extends "ILBankBundle::layout.html.twig" %}
+
+{% block title %} Souscription {% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Accueil</li>
+        <li class="breadcrumb-item">
+            <a href="#">Souscription</a>
+        </li>
+        <li class="breadcrumb-item active"> Nouvelle Souscription</li>
+        <!-- Breadcrumb Menu-->
+        <li class="breadcrumb-menu d-md-down-none">
+            <div class="btn-group" role="group" aria-label="Button group">
+                <a class="btn" href="#">
+                    <i class="icon-speech"></i>
+                </a>
+                <a class="btn" href="{{ path('il_bank_homepage') }}">
+                    <i class="icon-graph"></i>  Tableau de bord
+                </a>
+            </div>
+        </li>
+    </ol>
+{% endblock %}
+
+
+{% block content %}
+    {{ form_start(form) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+<div class="container-fluid">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Fiche d'enregistrement de liaison de wallet</strong>
+                        <small>Remplissez ce champ pour souscrire à ILAFIA</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="nom_carte">Operateur Telecom</label>
+                                    {{ form_widget(form.operateur, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Numero de la carte prepaye</label>
+                                    {{ form_widget(form.numCartePrepaye, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="nom_carte">Mois</label>
+                                        {{ form_widget(form.month, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="nom_carte">Annee</label>
+                                        {{ form_widget(form.year, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Statut d'activation</label>
+                                    {{ form_widget(form.statutCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="nom_carte">Numero Mobile</label>
+                                    {{ form_widget(form.mobileNo, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Nom carte</label>
+                                    {{ form_widget(form.nomCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Label de la carte</label>
+                                    {{ form_widget(form.labelCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Alias du compte</label>
+                                    {{ form_widget(form.aliasAccount, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Raison</label>
+                                    {{ form_widget(form.raison, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                {{ form_widget(form.w2c, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }} W2C
+                            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                                {{ form_widget(form.c2w, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }} C2W
+                            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                                {{ form_widget(form.balanceInquery, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }} Balance Inquery
+                            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="form-group">
+                                {{ form_widget(form.miniStatement, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }} Mini statement
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            <i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+                        <button type="reset" class="btn btn-sm btn-danger">
+                            <i class="fa fa-ban"></i> Reset</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    {# Fermeture de la balise <form> du formulaire HTML #}
+    {{ form_end(form) }}
+
+
+    {% endblock %}
