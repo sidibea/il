@@ -1,7 +1,3 @@
-il_api:
-    resource: "@ILApiBundle/Resources/config/routing.yml"
-    prefix:   /
-
 il_back:
     resource: "@ILBackBundle/Resources/config/routing.yml"
     prefix:   /back

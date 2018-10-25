@@ -1,8 +1,0 @@
-778840,127.0.0.1,GET,http://localhost:8000/bank/,1539962089,1370d9,200
-1370d9,127.0.0.1,GET,http://localhost:8000/bank/,1539962089,,500
-00315f,127.0.0.1,GET,http://localhost:8000/bank/,1539962117,,200
-804266,127.0.0.1,GET,http://localhost:8000/bank/report-manager,1539962129,,200
-6750e8,127.0.0.1,GET,http://localhost:8000/bank/report-manager,1539962558,,200
-f6d6a9,127.0.0.1,GET,http://localhost:8000/bank/report-manager,1539962605,,200
-109359,127.0.0.1,GET,http://localhost:8000/bank/,1539962947,,200
-b18bff,127.0.0.1,GET,http://localhost:8000/,1539997324,,200

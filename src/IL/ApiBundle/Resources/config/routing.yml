@@ -1,3 +1,0 @@
-il_api_homepage:
-    path:     /
-    defaults: { _controller: ILApiBundle:Default:index }

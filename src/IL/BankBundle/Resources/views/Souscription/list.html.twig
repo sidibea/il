@@ -31,7 +31,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Liste des souscriptions <span style="font-size: 12px; font-weight: normal;"> {{ souscriptions |length }} souscriptions</span></strong>
+                            <strong>Liste des souscriptions</strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-responsive-sm table-hover  mb-0">
@@ -46,10 +46,7 @@
                                     <th> Nom du compte</th>
                                     <th> Opérateur Mobile</th>
                                     <th>Statut Carte</th>
-                                    <th>Type Carte</th>
                                     <th> Link Status</th>
-                                    <th> Agence de Linkage</th>
-
                                     <th></th>
                                 </tr>
                                 </thead>
@@ -63,9 +60,7 @@
                                         <td><i><b>{{ souscription.nomCarte }}</b></i></td>
                                         <td><b>{{ souscription.operateur }}</b></td>
                                         <td> {{ souscription.statutLiaison }}</td>
-                                        <td> {{ souscription.statutLiaison }}</td>
                                         <td>{{ souscription.statutCarte }}</td>
-                                        <td>{{ app.user.bank }}</td>
                                         <td>
                                                 <a href="{{ path('il_bank_souscription_edit', { 'id' : souscription.id }) }}" class="btn  btn-outline-primary"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{ path('il_bank_souscription_resiliation', { 'id' : souscription.id }) }}" class="btn  btn-outline-danger">Resilier</a>

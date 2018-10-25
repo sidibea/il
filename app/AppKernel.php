@@ -20,12 +20,12 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             //new Sonata\UserBundle\SonataUserBundle(),
            // new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+
           //  new NS\ScenesBundle\NSScenesBundle(),
             new IL\CoreBundle\ILCoreBundle(),
             new IL\BankBundle\ILBankBundle(),
             new IL\UserBundle\ILUserBundle(),
             new IL\BackBundle\ILBackBundle(),
-            new IL\ApiBundle\ILApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

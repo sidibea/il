@@ -1,6 +1,3 @@
 il_back_homepage:
     path:     /
     defaults: { _controller: ILBackBundle:Back:index }
-il_back_add_user:
-    path:     /add-user
-    defaults: { _controller: ILBackBundle:Back:add }

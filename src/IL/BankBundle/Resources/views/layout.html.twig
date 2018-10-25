@@ -16,7 +16,6 @@
     <!-- Main styles for this application-->
     <link href="{{ absolute_url(asset('assets/admin/css/style.css')) }}" rel="stylesheet">
     <link href="{{ absolute_url(asset('assets/admin/vendors/pace-progress/css/pace.min.css')) }}" rel="stylesheet">
-    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 <header class="app-header navbar">
@@ -30,25 +29,53 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
     </button>
-
+    <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">Tableau de Bord</a>
+        </li>
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">Utilisateurs</a>
+        </li>
+        <li class="nav-item px-3">
+            <a class="nav-link" href="#">Reglages</a>
+        </li>
+    </ul>
     <ul class="nav navbar-nav ml-auto">
-
-
+        <li class="nav-item d-md-down-none">
+            <a class="nav-link" href="#">
+                <i class="icon-bell"></i>
+                <span class="badge badge-pill badge-danger">5</span>
+            </a>
+        </li>
+        <li class="nav-item d-md-down-none">
+            <a class="nav-link" href="#">
+                <i class="icon-list"></i>
+            </a>
+        </li>
+        <li class="nav-item d-md-down-none">
+            <a class="nav-link" href="#">
+                <i class="icon-location-pin"></i>
+            </a>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <img class="img-avatar" src="{{ absolute_url(asset('assets/admin/img/avatars/6.jpg')) }}" alt="">
+                <img class="img-avatar" src="img/avatars/6.jpg" alt="">
             </a>
             <div class="dropdown-menu dropdown-menu-right">
+
 
 
                 <div class="dropdown-header text-center">
                     <strong>Reglages</strong>
                 </div>
                 <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">
-                    <i class="fa fa-user"></i> Voir Profile
+                    <i class="fa fa-user"></i> Profile
                 </a>
-                <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">
-                    <i class="fa fa-user"></i> Modifier Profile
+                <a class="dropdown-item" href="">
+                    <i class="fa fa-wrench"></i> Mes Comptes bancaires
+                </a>
+                <a class="dropdown-item" href="">
+                    <i class="fa fa-wrench"></i> Mes cartes
                 </a>
 
                 <div class="divider"></div>
@@ -66,52 +93,38 @@
     </button>
 </header>
 <div class="app-body">
-    <div class="sidebar" style="width: 15%">
-        <nav class="sidebar-nav" style="width: 100%;">
-            <ul class="nav" style="width: 100%;">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_bank_homepage') }}">
+                    <a class="nav-link" href="index.html">
                         <i class="nav-icon icon-speedometer"></i> Tableau de Bord
                     </a>
                 </li>
 
-                <li class="nav-title">Souscription mobile</li>
+                <li class="nav-title">Souscription</li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('il_bank_souscription_list') }}">
-                        <i class="nav-icon icon-file"></i> Liste de souscription</a>
+                        <i class="nav-icon icon-drop"></i> Liste de souscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('il_bank_souscription') }}">
-                        <i class="nav-icon icon-plus"></i> Nouvelle Souscription</a>
+                        <i class="nav-icon icon-pencil"></i> Nouvelle Souscription</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_bank_resiliation_mobile') }}">
-                        <i class="nav-icon icon-remove"></i> Resiliations</a>
-                </li>
-
-                <li class="nav-title">Souscription banque</li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('il_bank_linkage_compte') }}">
-                        <i class="nav-icon icon-pencil"></i> Nouvelle souscription</a>
+                        <i class="nav-icon icon-pencil"></i> Liaison banque => carte prepayee</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_bank_souscription_list_banque') }}">
-                        <i class="nav-icon icon-file"></i> Liste de souscription </a>
+                    <a class="nav-link" href="">
+                        <i class="nav-icon icon-pencil"></i> Resiliation</a>
                 </li>
+                <li class="nav-title">Report Manager</li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_bank_resiliation_banque') }}">
-                        <i class="nav-icon icon-remove"></i> Liste des Resiliations</a>
+                    <a class="nav-link" href="">
+                        <i class="nav-icon icon-pencil"></i> Releve (3 mois)</a>
                 </li>
-
-                <li class="nav-title">Report</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_bank_report_manager') }}">
-                        <i class="nav-icon icon-pencil"></i> Report Manager</a>
-                </li>
-
-
-
 
 
                 <li class="nav-item mt-auto">
@@ -143,16 +156,12 @@
 <script src="{{ absolute_url(asset('assets/admin/node_modules/jquery/dist/jquery.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/popper.js/dist/umd/popper.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/bootstrap/dist/js/bootstrap.min.js')) }}"></script>
-
 <script src="{{ absolute_url(asset('assets/admin/node_modules/pace-progress/pace.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/@coreui/coreui/dist/js/coreui.min.js')) }}"></script>
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <!-- Plugins and scripts required by this view-->
 <script src="{{ absolute_url(asset('assets/admin/node_modules/chart.js/dist/Chart.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/js/main.js')) }}"></script>
-
-{% block scripts %} {% endblock %}
 </body>
 </html>

@@ -1,17 +1,4 @@
-Console Tool
-
-<comment>Usage:</comment>
-  command [options] [arguments]
-
-<comment>Options:</comment>
-  <info>-h, --help</info>            Display this help message
-  <info>-q, --quiet</info>           Do not output any message
-  <info>-V, --version</info>         Display this application version
-  <info>    --ansi</info>            Force ANSI output
-  <info>    --no-ansi</info>         Disable ANSI output
-  <info>-n, --no-interaction</info>  Do not ask any interactive question
-  <info>-v|vv|vvv, --verbose</info>  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
-
-<comment>Available commands:</comment>
-  <info>help</info>  Displays help for a command
-  <info>list</info>  Lists commands
+ğûù [¾®FÿùúÃGv46€±e ‚qîSqÚ„C|ÁÙ-Eb}ò«…ÁæÙivïÜÑ[™Ï÷Ò»ƒì˜.­í)ûW¿y\AR-é¬HPÔÖˆŒ¦óÅ{üuúË/âz†ú 9j ğ¹=á¤$ª§ÜÑ=Š	“Âï|šŠ—ŠØVË%ùzlU+Ä¶¿Që=#–Ml:WÂÛ$¯}§¾g3òä´ç°óÅ}WJ@€JÑAábû†á´b¥¾›ó•£Êˆû¦³/õáÁúŞ}‚àœe¹X
+Í‰¾ÅŠ¬gyvØ†››ÙĞ¸T‡øX!6½b?kÇ¯zïàû„®ıÓµQÑB¶Î@æ(FzXô6DÖŒ¸šä[İ°F"µ
+µf$f¹^ÜHKZ‹?‚/—¸0|³zL§´°¡İˆ%µ#Z¥Ÿ¦“Éö«*!Ÿ]ïíËkFg)Zl|O"rh5x¿µ‡1zÒÁøBnò MÆóşÜ èZ‚pÇ^UQÕ aÛ	Áğ±êK×s›éÀW/´8Jê:wJ_ñÂ"4qKˆ{Pe2r=såHêrWëw˜ƒTà*ßó·4“Mòl¤Ÿïç0sä¯Ôy=‡îÏ|?°ø+ipÑÿiı±ikêò-»kmtV7_y\9ùºqáV’uÖ°‚ñes…¥Ê í¤NµÛëE?iRobÍ>¦KÛ’[#byíªfÔ®#´’ÿTOVÉ´«XúH^¬îjÒJFÚó%|ùRÉõc§îİ·s:¼†½§¶ğæ™7Îm•á,¯m‘zäÌË‰OGtu·ˆóöÀü$*7É­+?_°ÍÂ®ú+ıÌı~ç€­“¯Ñİî.¶@1^³õ|¼¼\¦3ş°4æ|`_Ç›ë¦IÆã»y±ˆÙş
+V¢ó¾4"#€ËÎwcï•ÉëPÖ•/M3ÚQ(Hâ'H¯áá§F$‹ÄYz*­ˆÀ

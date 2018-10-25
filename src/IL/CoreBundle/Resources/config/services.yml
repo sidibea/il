@@ -1,4 +1,0 @@
-services:
-#    il_core.example:
-#        class: IL\CoreBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

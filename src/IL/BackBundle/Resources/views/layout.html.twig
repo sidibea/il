@@ -69,10 +69,13 @@
                     <strong>Reglages</strong>
                 </div>
                 <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">
-                    <i class="fa fa-user"></i> Voir Profile
+                    <i class="fa fa-user"></i> Profile
                 </a>
-                <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">
-                    <i class="fa fa-user"></i> Modifier Profile
+                <a class="dropdown-item" href="">
+                    <i class="fa fa-wrench"></i> Mes Comptes bancaires
+                </a>
+                <a class="dropdown-item" href="">
+                    <i class="fa fa-wrench"></i> Mes cartes
                 </a>
 
                 <div class="divider"></div>
@@ -101,7 +104,7 @@
 
                 <li class="nav-title">Gestion utilisateur</li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('il_back_add_user') }}">
+                    <a class="nav-link" href="{{ path('il_bank_souscription_list') }}">
                         <i class="nav-icon icon-drop"></i> Ajouter un utilisateur</a>
                 </li>
 
