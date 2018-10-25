@@ -16,10 +16,24 @@ il_bank_souscription_list_banque:
 il_bank_souscription_resiliation:
     path:     /resiliation/{id}
     defaults: { _controller: ILBankBundle:Bank:resiliation }
+
+il_bank_souscription_resiliation_banque:
+    path:     /resiliation-banque/{id}
+    defaults: { _controller: ILBankBundle:Bank:resiliationBanque }
 il_bank_linkage_compte:
-    path:     /linkage
-    defaults: { _controller: ILBankBundle:Bank:linkage }
+    path:     /souscription-banque
+    defaults: { _controller: ILBankBundle:Bank:souscriptionBanque }
+il_bank_linkage_compte_edit:
+    path:     /souscription-banque/edit/{id}
+    defaults: { _controller: ILBankBundle:Bank:souscriptionBanqueEdit }
 
 il_bank_report_manager:
     path:     /report-manager
     defaults: { _controller: ILBankBundle:Bank:report }
+
+il_bank_resiliation_mobile:
+    path:     /resiliation-mobile
+    defaults: { _controller: ILBankBundle:Bank:resiliationMobileList }
+il_bank_resiliation_banque:
+    path:     /resiliation-banque
+    defaults: { _controller: ILBankBundle:Bank:resiliationBanqueList }

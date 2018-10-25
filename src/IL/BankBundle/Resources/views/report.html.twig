@@ -33,7 +33,8 @@
                         <div class="card-header">
                             <strong>Report Manager</strong>
                         </div>
-                        <div class="card-body">
+                        <form method="get">
+                            <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -49,27 +50,27 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="company">Nom de l'operateur</label>
-                                        <select class="form-control">
-                                            <option value="">Orange ML</option>
-                                            <option value="">Malitel</option>
+                                        <select name="operateur" class="form-control">
+                                            <option value="Orange ML">Orange ML</option>
+                                            <option value="Malitel">Malitel</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Type de transaction</label>
 
-                                        <select class="form-control">
+                                        <select name="type_operation" class="form-control">
                                             <option value=""></option>
-                                            <option value="">Orange ML</option>
-                                            <option value="">Malitel</option>
+                                            <option value="1">Bank to wallet </option>
+                                            <option value="2">Wallet to bank</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Numero de la carte</label>
-                                        <input type="text" class="form-control" id="ccnumber" placeholder="0000 0000 0000 0000">
+                                        <input type="text" name="numero_carte" class="form-control" id="ccnumber" maxlength="16" onkeypress="return isNumberKey(event)"  placeholder="0000 0000 0000 0000">
                                     </div>
                                     <div class="form-group">
                                         <label for="company">Start date</label>
-                                        <input type="text" class="form-control" id="ccnumber" placeholder="XX-XX-XXXX">
+                                        <input type="text" name="start_date" class="form-control" id="ccnumber" placeholder="XX-XX-XXXX">
                                     </div>
 
 
@@ -77,14 +78,15 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Numero de compte</label>
-                                        <input type="text" class="form-control" id="name" placeholder="">
+                                        <input type="text" name="numero_compte" maxlength="16" onkeypress="return isNumberKey(event)" class="form-control" id="name" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Statut de linkage</label>
-                                        <select class="form-control">
+                                        <select name="statut_linkage" class="form-control">
                                             <option value=""></option>
-                                            <option value="">Linked</option>
-                                            <option value="">Delinked</option>
+                                            <option value="linked">Linked</option>
+                                            <option value="delinked">Delinked</option>
+                                            <option value="pending">Pending</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -93,7 +95,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="company">End date</label>
-                                        <input type="text" class="form-control" id="ccnumber" placeholder="XX-XX-XXXX">
+                                        <input type="text" name="end_date" class="form-control" id="ccnumber" placeholder="XX-XX-XXXX">
                                     </div>
                                 </div>
                             </div>
@@ -103,75 +105,98 @@
                             </div>
                             <div class="row"> &nbsp;</div>
 
-                            <div class="row">
-                                <table class="table table-responsive table-striped">
-                                    <thead>
+                            {% if app.request.get('statut_linkage') != "" %}
+                                <table class="table table-responsive-sm table-hover  mb-0">
+                                    <thead class="thead-light">
                                     <tr>
-                                        <th>No</th>
-                                        <th>OPERATOR_CODE</th>
-                                        <th>REQUEST_TYPE</th>
-                                        <th>REQUEST_DATE</th>
-                                        <th>ACCOUNT_ALIAS</th>
-                                        <th>ACCOUNT_NO</th>
-                                        <th>MOBILE NO</th>
-                                        <th>REQUEST_ID</th>
-                                        <th>AMOUNT</th>
-                                        <th>RESPONSE_CODE</th>
-                                        <th>RESPONSE_MESSAGE</th>
-                                        <th>STATUS</th>
+                                        <th> No de Carte</th>
+                                        <th> No de telephone</th>
+                                        <th> Nom du detenteur</th>
+                                        <th> Opérateur Mobile</th>
+                                        <th>Statut de Liaison</th>
+                                        <th>Type Carte</th>
+                                        <th> Link Status</th>
+                                        <th>Agence</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Orange Money</td>
-                                        <td>C2W</td>
-                                        <td>XX-XX-XXXX</td>
-                                        <td>XXXXXX</td>
-                                        <td>XXXXXXXXX</td>
-                                        <td>75317475</td>
-                                        <td>OR1503200WMDRHI</td>
-                                        <td>5000</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>RECORDN</td>
+                                    {% for souscription in souscriptions %}
+                                        <tr>
+                                            <td><b>{{ souscription.numeroCarte | slice(0, 3) }}****{{ souscription.numeroCarte | slice(10, 14) }}</b></td>
+                                            <td>{{ souscription.numeroMobile }}</td>
+                                            <td><i><b>{{ souscription.nomCarte }}</b></i></td>
+                                            <td><b>{{ souscription.operateur }}</b></td>
+                                            <td> {{ souscription.typeCarte }}</td>
+                                            <td> {{ souscription.statutLiaison }}</td>
+                                            <td>{{ souscription.statutCarte }}</td>
+                                            <td>{{ app.user.bank }}</td>
 
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Mobicah</td>
-                                        <td>C2W</td>
-                                        <td>XX-XX-XXXX</td>
-                                        <td>XXXXXX</td>
-                                        <td>XXXXXXXXX</td>
-                                        <td>75317475</td>
-                                        <td>OR1503200WMDRHI</td>
-                                        <td>5000</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>RECORDN</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Mobicah</td>
-                                        <td>C2W</td>
-                                        <td>XX-XX-XXXX</td>
-                                        <td>XXXXXX</td>
-                                        <td>XXXXXXXXX</td>
-                                        <td>75317475</td>
-                                        <td>OR1503200WMDRHI</td>
-                                        <td>5000</td>
-                                        <td>null</td>
-                                        <td>null</td>
-                                        <td>RECORDN</td>
-
-                                    </tr>
-
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
-                            </div>
+                            {% else %}
+                                <table class="table table-responsive table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>OPERATOR_CODE</th>
+                                    <th>REQUEST_TYPE</th>
+                                    <th>REQUEST_DATE</th>
+                                    <th>ACCOUNT_ALIAS</th>
+                                    <th>ACCOUNT_NO</th>
+                                    <th>MOBILE NO</th>
+                                    <th>REQUEST_ID</th>
+                                    <th>AMOUNT</th>
+                                    <th>RESPONSE_CODE</th>
+                                    <th>RESPONSE_MESSAGE</th>
+                                    <th>STATUS</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for trans in souscriptions %}
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            {% if trans.trans == 'c2w' %}
+                                                {% if trans.beneficiaire |slice(0, 1) == 7 %}
+                                                    Orange Money
+                                                {% else %}
+                                                    Mobicash
+                                                {% endif %}
+                                            {% else %}
+                                                {% if trans.source |slice(0, 1) == 7 %}
+                                                    Orange Money
+                                                {% else %}
+                                                    Mobicash
+                                                {% endif %}
+
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {{ trans.trans | upper }}
+                                        </td>
+                                        <td>{{ trans.created_at | date('d M Y H:i:s') }}</td>
+                                        <td>XXXXXX</td>
+                                        <td>{{ trans.source }}</td>
+                                        <td>{{ trans.beneficiaire }}</td>
+                                        <td>OR1503200WMDRHI</td>
+                                        <td>{{ trans.montant }}</td>
+                                        <td>null</td>
+                                        <td>null</td>
+                                        <td>RECORDN</td>
+
+                                    </tr>
+                                    {% endfor %}
+
+
+                                    </tbody>
+                                    </table>
+                            {% endif %}
+
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -179,3 +204,20 @@
     </div>
 
 {% endblock %}
+
+ {% block scripts %}
+<script>
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    function isLetterKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8)
+            return true;
+        return false;
+    }
+    </script>
+ {% endblock %}

@@ -107,7 +107,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/back')) {
+        // il_api_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'IL\\ApiBundle\\Controller\\DefaultController::indexAction',  '_route' => 'il_api_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_il_api_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'il_api_homepage'));
+            }
+
+            return $ret;
+        }
+        not_il_api_homepage:
+
+        if (0 === strpos($pathinfo, '/back')) {
             // il_back_homepage
             if ('/back' === $trimmedPathinfo) {
                 $ret = array (  '_controller' => 'IL\\BackBundle\\Controller\\BackController::indexAction',  '_route' => 'il_back_homepage',);
@@ -169,19 +184,48 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             }
 
-            // il_bank_souscription_resiliation
-            if (0 === strpos($pathinfo, '/bank/resiliation') && preg_match('#^/bank/resiliation/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'il_bank_souscription_resiliation')), array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::resiliationAction',));
+            elseif (0 === strpos($pathinfo, '/bank/souscription-banque')) {
+                // il_bank_linkage_compte
+                if ('/bank/souscription-banque' === $pathinfo) {
+                    return array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::souscriptionBanqueAction',  '_route' => 'il_bank_linkage_compte',);
+                }
+
+                // il_bank_linkage_compte_edit
+                if (0 === strpos($pathinfo, '/bank/souscription-banque/edit') && preg_match('#^/bank/souscription\\-banque/edit/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'il_bank_linkage_compte_edit')), array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::souscriptionBanqueEditAction',));
+                }
+
+            }
+
+            elseif (0 === strpos($pathinfo, '/bank/resiliation')) {
+                // il_bank_souscription_resiliation
+                if (preg_match('#^/bank/resiliation/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'il_bank_souscription_resiliation')), array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::resiliationAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/bank/resiliation-banque')) {
+                    // il_bank_souscription_resiliation_banque
+                    if (preg_match('#^/bank/resiliation\\-banque/(?P<id>[^/]++)$#sD', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'il_bank_souscription_resiliation_banque')), array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::resiliationBanqueAction',));
+                    }
+
+                    // il_bank_resiliation_banque
+                    if ('/bank/resiliation-banque' === $pathinfo) {
+                        return array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::resiliationBanqueListAction',  '_route' => 'il_bank_resiliation_banque',);
+                    }
+
+                }
+
+                // il_bank_resiliation_mobile
+                if ('/bank/resiliation-mobile' === $pathinfo) {
+                    return array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::resiliationMobileListAction',  '_route' => 'il_bank_resiliation_mobile',);
+                }
+
             }
 
             // il_bank_report_manager
             if ('/bank/report-manager' === $pathinfo) {
                 return array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::reportAction',  '_route' => 'il_bank_report_manager',);
-            }
-
-            // il_bank_linkage_compte
-            if ('/bank/linkage' === $pathinfo) {
-                return array (  '_controller' => 'IL\\BankBundle\\Controller\\BankController::linkageAction',  '_route' => 'il_bank_linkage_compte',);
             }
 
         }

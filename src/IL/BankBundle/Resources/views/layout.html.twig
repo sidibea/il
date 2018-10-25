@@ -16,6 +16,7 @@
     <!-- Main styles for this application-->
     <link href="{{ absolute_url(asset('assets/admin/css/style.css')) }}" rel="stylesheet">
     <link href="{{ absolute_url(asset('assets/admin/vendors/pace-progress/css/pace.min.css')) }}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 <header class="app-header navbar">
@@ -65,9 +66,9 @@
     </button>
 </header>
 <div class="app-body">
-    <div class="sidebar">
-        <nav class="sidebar-nav">
-            <ul class="nav">
+    <div class="sidebar" style="width: 15%">
+        <nav class="sidebar-nav" style="width: 100%;">
+            <ul class="nav" style="width: 100%;">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('il_bank_homepage') }}">
                         <i class="nav-icon icon-speedometer"></i> Tableau de Bord
@@ -84,13 +85,10 @@
                         <i class="nav-icon icon-plus"></i> Nouvelle Souscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="nav-icon icon-remove"></i> Resiliation</a>
+                    <a class="nav-link" href="{{ path('il_bank_resiliation_mobile') }}">
+                        <i class="nav-icon icon-remove"></i> Resiliations</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="nav-icon icon-pencil"></i> Releve (3 mois)</a>
-                </li>
+
                 <li class="nav-title">Souscription banque</li>
 
                 <li class="nav-item">
@@ -102,13 +100,10 @@
                         <i class="nav-icon icon-file"></i> Liste de souscription </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="nav-icon icon-remove"></i> Resiliation</a>
+                    <a class="nav-link" href="{{ path('il_bank_resiliation_banque') }}">
+                        <i class="nav-icon icon-remove"></i> Liste des Resiliations</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="nav-icon icon-pencil"></i> Releve (3 mois)</a>
-                </li>
+
                 <li class="nav-title">Report</li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('il_bank_report_manager') }}">
@@ -148,12 +143,16 @@
 <script src="{{ absolute_url(asset('assets/admin/node_modules/jquery/dist/jquery.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/popper.js/dist/umd/popper.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/bootstrap/dist/js/bootstrap.min.js')) }}"></script>
+
 <script src="{{ absolute_url(asset('assets/admin/node_modules/pace-progress/pace.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/@coreui/coreui/dist/js/coreui.min.js')) }}"></script>
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <!-- Plugins and scripts required by this view-->
 <script src="{{ absolute_url(asset('assets/admin/node_modules/chart.js/dist/Chart.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')) }}"></script>
 <script src="{{ absolute_url(asset('assets/admin/js/main.js')) }}"></script>
+
+{% block scripts %} {% endblock %}
 </body>
 </html>
