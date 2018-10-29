@@ -7,6 +7,6 @@ parameters:
     database_password: root
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: sidibesekouassane@gmail.com
-    mailer_password: sorofing
-    secret: 8cf58401d83a68399e5cdae44ba464327a0452f4
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt

@@ -1,6 +1,25 @@
-¥ ÂL!åÅÓU%*è.JB¤„¦r2¸«IüÆëf4œ
-^ßx‘jkÍÕú6j{¼u‰*G´$\3è@Ë1ğÁ:ñaå-q"?Y$}ÚPí
-YCd»^#½VeµÛl¶YØ×h"
--«>2±7Â¾Ñ]¿½ÆÚ«VjÜìâå9¬mFÚÚk	ÉU(–rŒ6^#¼™Ï1kjèy5µ®ØnVsÕUe6ÄªÍ*H!+ì¬£Seu%º<g‘¼nu7$›ê…ÑqKğŠ1ÁW#¯dõ·=¢†r¢ŠøaÆ¡%Â)éÎ2¢l³¢o“½]Jekj*Iq'~%Ğ“
- I–ZÓ6AN²&²½	X¶yğ<Mæ<²6êQ0˜ÈA¢nY«Be¨;3ºQŒ,F«¼¶›Xè?„šg.ÚÖboÇmLs„Ç¨Ëy¿&M@Xõ!”]šŸP†®ÒI
-Y‹ºXeÄ Ø”E–w•76¡£Ìà¥cììvÃ‡MZßİá[èĞN©r³ÆmÍpJnOµ–K.Ô¹Z—Úä<8æÖ,¡ÑÛ³ u“¯ÍŸH3ˆhî2º¶êJ8ÔqëªnZ©ÏIÕ±åW¢Í¸£±Ì¢YG|5¶XíÃhÕjĞ"ëm [áÚhflƒ‚A^µÚK—s!zm§}<ê	/'¾®{í`¥5ËNuAÂ !um±wW“XÌšÅ!rxY_ŒCl³´ü$ë¤%_~ÚØ¢Ú×NkMI6U·hI7;Bq©µ>*övÓ‘n´õ€TTYº.¬«&`°Ä.i.,ƒfÕJ)¨ÓjÒ.šDbvqn„œ‡ê‘"\Õï
+<?php
+
+/*
+ * This file is part of Twig.
+ *
+ * (c) Fabien Potencier
+ * (c) Armin Ronacher
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+class Twig_Node_Expression_Constant extends Twig_Node_Expression
+{
+    public function __construct($value, $lineno)
+    {
+        parent::__construct(array(), array('value' => $value), $lineno);
+    }
+
+    public function compile(Twig_Compiler $compiler)
+    {
+        $compiler->repr($this->getAttribute('value'));
+    }
+}
+
+class_alias('Twig_Node_Expression_Constant', 'Twig\Node\Expression\ConstantExpression', false);

@@ -1,6 +1,30 @@
-¾Ş§9®ëİÍe]TvƒîÑO`©>âiyzã§E4•Ğ‰²ìë{¬ÁQl07©nÕÚã66?uÅcÁJp{Ô-œëOô}H­·Ÿæò“
+<?php
 
-ÂE5JnÜã·Lí’XKdVXo/gØ,&[ñX“ìÍöj‘™KWÈäb‡Ø"›ã^Î :‚p™éÂÁÔ#³²Ë1}U”ò· Ïlrn*¶å£µ7âyFÏ<{ †ø‡î:N1ç9şæğ™^^¹¶Î÷©ó³…ßê½½ÊF/0[ŸâW²NøóÙ2WÉÓâÚË²[i'Hù³Š´Ş›"lãxQÑÙ‚MO"¥ŠÅ¡‰@(MÕ½BX’ÎÿNÂŒ
-t–*%/l”êÌï¯â¡9i‹qüNÉRâ†LAaV‹ù{“‹(¶\ìí¢¾<êËÃeÌ”B1–‡0”ô˜\Jº=YE°Ğ
-àd¹<÷¾Á_»Lû"ö²Şµc£qdƒÚT˜‚”9Xfâ>º§ª“S—µ{Ó½L\i8TP¶~Â01@!îAıÇZvú*3s'¾#Â!ìÖÕLL*Ô—Y¶´
-ÏÎø¶éœ»Íßl]Şôğ¦=¿á»ra/B<ÁÄîË¨;³ACl†PåSò²`óñŸ!àSüÂ×çŞTíğkeÂóòrÔÀ«u€ôªÆ˜ä™°GóØn ¢Û°­|)×¿ŞõNkÈ¤ØûĞqçdHz¾m]Ÿô&\Ê.0ˆ3Hh#®.@PõJ¸)GPïŠ'zKˆc&(26›%ÌâgB5í§vêNµÙŠ×Ë¦§Iöf¼;÷²ÇMú/:r
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Symfony\Component\Templating\Storage;
+
+/**
+ * StringStorage represents a template stored in a string.
+ *
+ * @author Fabien Potencier <fabien@symfony.com>
+ */
+class StringStorage extends Storage
+{
+    /**
+     * Returns the content of the template.
+     *
+     * @return string The template content
+     */
+    public function getContent()
+    {
+        return $this->template;
+    }
+}

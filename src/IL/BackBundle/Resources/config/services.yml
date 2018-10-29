@@ -1,4 +1,0 @@
-services:
-#    il_back.example:
-#        class: IL\BackBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

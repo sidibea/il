@@ -1,0 +1,13 @@
+1a111c,127.0.0.1,GET,http://localhost:8000/bank/,1540779632,,200
+7a9dc1,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/1.jpg,1540779636,939b13,200
+939b13,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/1.jpg,1540779636,,404
+5c4586,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/2.jpg,1540779638,7a0911,200
+7a0911,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/2.jpg,1540779638,,404
+c5de96,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/3.jpg,1540779640,58a44d,200
+58a44d,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/3.jpg,1540779640,,404
+94ecc9,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/4.jpg,1540779641,74fa94,200
+74fa94,127.0.0.1,GET,http://localhost:8000/bank/images/avatar/4.jpg,1540779642,,404
+6f192c,127.0.0.1,GET,http://localhost:8000/bank/images/admin.jpg,1540779643,24d6e2,200
+24d6e2,127.0.0.1,GET,http://localhost:8000/bank/images/admin.jpg,1540779643,,404
+35fbc9,127.0.0.1,GET,http://localhost:8000/images/flags/4x3/us.svg,1540779645,a03526,200
+a03526,127.0.0.1,GET,http://localhost:8000/images/flags/4x3/us.svg,1540779645,,404

@@ -1,20 +1,31 @@
 il_bank_homepage:
     path:     /
-    defaults: { _controller: ILBankBundle:Bank:dashboard }
-il_bank_souscription:
-    path:     /new-souscription
-    defaults: { _controller: ILBankBundle:Bank:souscription }
-il_bank_souscription_edit:
-    path:     /edit-souscription/{id}
-    defaults: { _controller: ILBankBundle:Bank:sousEdit }
-il_bank_souscription_list:
-    path:     /souscription-lists
-    defaults: { _controller: ILBankBundle:Bank:list }
+    defaults: { _controller: ILBankBundle:Dashboard:index }
+il_bank_souscription_mobile_list:
+    path:     /souscription-mobile
+    defaults: { _controller: ILBankBundle:SouscriptionMobile:list }
+il_bank_souscription_mobile_resiliation_list:
+    path:     /souscription-mobile/resiliation
+    defaults: { _controller: ILBankBundle:SouscriptionMobile:resiliationList }
 
-il_bank_souscription_resiliation:
-    path:     /resiliation/{id}
-    defaults: { _controller: ILBankBundle:Bank:resiliation }
-il_bank_linkage_compte:
-    path:     /linkage
-    defaults: { _controller: ILBankBundle:Bank:linkage }
+il_bank_souscription_mobile_new:
+    path:     /souscription-mobile/new
+    defaults: { _controller: ILBankBundle:SouscriptionMobile:add }
+il_bank_souscription_mobile_edit:
+    path:     /souscription-mobile/edit/{id}
+    defaults: { _controller: ILBankBundle:SouscriptionMobile:edit }
 
+
+il_bank_souscription_banque_list:
+    path:     /souscription-banque
+    defaults: { _controller: ILBankBundle:SouscriptionBanque:list }
+il_bank_souscription_banque_new:
+    path:     /souscription-banque/add-new
+    defaults: { _controller: ILBankBundle:SouscriptionBanque:add }
+il_bank_souscription_banque_edit:
+    path:     /souscription-banque/edit/{id}
+    defaults: { _controller: ILBankBundle:SouscriptionBanque:edit }
+
+il_bank_souscription_banque_resiliation_list:
+    path:     /souscription-banque/resiliation
+    defaults: { _controller: ILBankBundle:SouscriptionBanque:resiliationList }

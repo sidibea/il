@@ -16,16 +16,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-
+            new IL\UserBundle\ILUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            //new Sonata\UserBundle\SonataUserBundle(),
-           // new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-
-          //  new NS\ScenesBundle\NSScenesBundle(),
             new IL\CoreBundle\ILCoreBundle(),
             new IL\BankBundle\ILBankBundle(),
-            new IL\UserBundle\ILUserBundle(),
-            new IL\BackBundle\ILBackBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
