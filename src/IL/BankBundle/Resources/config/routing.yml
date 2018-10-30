@@ -29,3 +29,7 @@ il_bank_souscription_banque_edit:
 il_bank_souscription_banque_resiliation_list:
     path:     /souscription-banque/resiliation
     defaults: { _controller: ILBankBundle:SouscriptionBanque:resiliationList }
+
+il_bank_report:
+    path:     /report-manager
+    defaults: { _controller: ILBankBundle:SouscriptionBanque:report }

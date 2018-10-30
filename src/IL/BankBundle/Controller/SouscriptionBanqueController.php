@@ -87,4 +87,12 @@ class SouscriptionBanqueController extends Controller
 
     }
 
+    public function reportAction()
+    {
+
+        return $this->render('ILBankBundle::report.html.twig', [
+        ]);
+
+    }
+
 }
