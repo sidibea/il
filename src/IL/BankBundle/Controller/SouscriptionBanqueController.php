@@ -87,8 +87,16 @@ class SouscriptionBanqueController extends Controller
 
     }
 
-    public function reportAction()
+    public function reportAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        if($request->getMethod() == 'GET'){
+
+            if($request->get('operateur') != null){
+
+            }
+        }
 
         return $this->render('ILBankBundle::report.html.twig', [
         ]);
