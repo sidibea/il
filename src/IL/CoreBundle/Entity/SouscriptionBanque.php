@@ -55,6 +55,12 @@ class SouscriptionBanque
      * @ORM\Column(name="numero_carte", type="string", length=255)
      */
     private $numeroCarte;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero_telephone", type="string", length=255)
+     */
+    private $numeroTelephone;
 
 
 
@@ -493,6 +499,24 @@ class SouscriptionBanque
     {
         $this->miniStatement = $miniStatement;
     }
+
+    /**
+     * @return string
+     */
+    public function getNumeroTelephone()
+    {
+        return $this->numeroTelephone;
+    }
+
+    /**
+     * @param string $numeroTelephone
+     */
+    public function setNumeroTelephone($numeroTelephone)
+    {
+        $this->numeroTelephone = $numeroTelephone;
+    }
+
+
 
 
 

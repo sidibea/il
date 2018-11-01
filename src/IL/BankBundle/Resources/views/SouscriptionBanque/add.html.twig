@@ -46,42 +46,46 @@
 
 
                                 <div class="form-group">
-                                    <label for="nom_carte">Numero de la carte prepaye</label>
+                                    <label for="nom_carte">Numero de la carte prepayé</label>
                                     {{ form_widget(form.numeroCarte, {'attr': {'class': 'form-control ', 'maxlength': '16', 'onkeypress': 'return onlyNos(event,this);',  'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Type de carte</label>
-                                    {{ form_widget(form.typeCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.typeCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'readonly':'readonly', 'placeholder': '' }}) }}
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="nom_carte">Mois d'expiration</label>
-                                        {{ form_widget(form.moisExpiration, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                        {{ form_widget(form.moisExpiration, {'attr': {'class': 'form-control ', 'maxlength': '2', 'id': 'nom_carte', 'placeholder': '' }}) }}
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="nom_carte">Annee d'expiration</label>
-                                        {{ form_widget(form.anneeExpiration, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                        <label for="nom_carte">Année d'expiration</label>
+                                        {{ form_widget(form.anneeExpiration, {'attr': {'class': 'form-control ', 'maxlength': '4', 'id': 'nom_carte', 'placeholder': '' }}) }}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Statut carte</label>
-                                    {{ form_widget(form.statutCarte, {'attr': {'class': 'form-control ', 'value': 'Activated', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.statutCarte, {'attr': {'class': 'form-control ', 'readonly':'readonly', 'value': 'Activated', 'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Statut de Liaison</label>
-                                    {{ form_widget(form.statutLiaison, {'attr': {'class': 'form-control ', 'value': 'Pending', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.statutLiaison, {'attr': {'class': 'form-control ', 'readonly':'readonly', 'value': 'Pending', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Numero de téléphone</label>
+                                    {{ form_widget(form.numeroTelephone, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'maxlength': '8', 'onkeypress': 'return onlyNos(event,this);', 'maxlength': '8', 'placeholder': '' }}) }}
                                 </div>
 
 
                             </div>
                             <div class="col-md-5">
                              <div class="form-group">
-                                    <label for="nom_carte">Numero de compte</label>
+                                    <label for="nom_carte">Numéro de compte</label>
                                     {{ form_widget(form.numeroCompte, {'attr': {'class': 'form-control ', 'maxlength': '16', 'onkeypress': 'return onlyNos(event,this);',  'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Type de compte</label>
-                                    {{ form_widget(form.typeCompte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.typeCompte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'readonly':'readonly', 'placeholder': '' }}) }}
                                 </div>
 
                                 <div class="form-group">
@@ -95,6 +99,10 @@
                                 <div class="form-group">
                                     <label for="nom_carte">Alias du compte</label>
                                     {{ form_widget(form.aliasCompte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_carte">Raison</label>
+                                    {{ form_widget(form.raison, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Raison</label>
@@ -163,7 +171,7 @@
 
                 else { return true; }
 
-                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123 || charCode == 32))
 
                     return true;
 
@@ -199,7 +207,7 @@
 
                 else { return true; }
 
-                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                if (charCode > 31 && (charCode < 48 || charCode > 57 )) {
 
                     return false;
 
@@ -224,7 +232,7 @@
              console.log(numeroCarte.substring(0, 3) );
 
             if(numeroCarte.substring(0, 3) == '742')
-                $('#il_corebundle_souscriptionmobile_typeCarte').val('VISA');
+                $('#il_corebundle_souscriptionbanque_typeCarte').val('VISA');
             else if(numeroCarte.substring(0, 3) == '543')
                  $('#il_corebundle_souscriptionbanque_typeCarte').val('MASTERCARD');
             else

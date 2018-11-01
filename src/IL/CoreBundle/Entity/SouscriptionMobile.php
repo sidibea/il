@@ -35,12 +35,7 @@ class SouscriptionMobile
      */
     private $numeroCarte;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="numero_compte", type="string", length=255)
-     */
-    private $numeroCompte;
+
 
     /**
      * @var string
@@ -603,21 +598,7 @@ class SouscriptionMobile
         $this->effectuerPar = $effectuerPar;
     }
 
-    /**
-     * @return string
-     */
-    public function getNumeroCompte()
-    {
-        return $this->numeroCompte;
-    }
 
-    /**
-     * @param string $numeroCompte
-     */
-    public function setNumeroCompte($numeroCompte)
-    {
-        $this->numeroCompte = $numeroCompte;
-    }
 
 
 

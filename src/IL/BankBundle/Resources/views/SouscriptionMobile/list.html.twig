@@ -34,14 +34,11 @@
                         <strong>Liste des souscriptions</strong>
                     </div>
                     <div class="card-body">
-                        <table class="table table-responsive-sm table-hover  mb-0">
+                        <table id="exemple" class="table table-responsive-sm table-hover  mb-0">
                             <thead class="thead-light">
                             <tr>
-                                <th class="text-center">
-                                    No
-                                </th>
-                                <th> Opérateur Mobile</th>
 
+                                <th> Opérateur Mobile</th>
                                 <th> No de carte</th>
                                 <th> Nom sur la carte</th>
                                 <th> No de telephone</th>
@@ -53,11 +50,11 @@
                             <tbody>
                             {% for souscription in souscriptions %}
                                 <tr>
-                                    <td>{{ souscription.id }}</td>
                                     <td>{{ souscription.operateur }}</td>
-                                    <td>{{ souscription.numeroCarte }}</td>
-                                    <td>{{ souscription.numeroTelephone }}</td>
+                                    <td>{{ souscription.numeroCarte | slice(0, 4)  }} **** **** *{{ souscription.numeroCarte | slice(0, 3)  }}</td>
                                     <td>{{ souscription.nomCarte }}</td>
+
+                                    <td>{{ souscription.numeroTelephone }}</td>
                                     <td>
                                         {% if souscription.statutCarte == 'Activated' %}
                                             <button type="button" class="btn btn-outline-success btn-sm">{{ souscription.StatutCarte }}</button>
@@ -87,4 +84,19 @@
 
     </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#exemple').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+        })
+    </script>
 {% endblock %}

@@ -1597,34 +1597,6 @@ header .form-inline {
         top: 93% !important;
     }
 }
-.dataTables_paginate {
-    .pagination {
-        border-radius: 0;
-        li {
-            border-radius: 0 !important;
-            a {
-                border-radius: 0 !important;
-                color: #272c33;
-            }
-            &.active {
-                a {
-                    background: #272c33;
-                    border-color: #272c33;
-                    color: #fff;
-                }
-            }
-            &:hover {
-                a {
-                    background: #272c33;
-                    border-color: #272c33;
-                    color: #fff;
-                }
-            }
-        }
-    }
-}
-
-
 
 // Responsive Styles 
 

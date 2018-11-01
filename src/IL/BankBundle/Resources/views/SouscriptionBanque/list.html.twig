@@ -34,17 +34,15 @@
                         <strong>Liste des souscriptions</strong>
                     </div>
                     <div class="card-body">
-                        <table class="table table-responsive-sm table-hover  mb-0">
+                        <table id="datatable" class="table  table-responsive-sm ">
                             <thead class="thead-light">
                             <tr>
-                                <th class="text-center">
-                                    No
-                                </th>
+
                                 <th> No de compte</th>
                                 <th>Type de compte</th>
                                 <th> No de carte</th>
                                 <th> Nom sur la carte</th>
-                                <th> No de telephone</th>
+                                <th> No de téléphone</th>
                                 <th>Statut Carte</th>
                                 <th>  Statut Linkage</th>
                                 <th></th>
@@ -53,10 +51,10 @@
                             <tbody>
                             {% for souscription in souscriptions %}
                                 <tr>
-                                    <td>{{ souscription.id }}</td>
                                     <td>{{ souscription.numeroCompte }}</td>
                                     <td>{{ souscription.typeCompte }}</td>
                                     <td>{{ souscription.numeroCarte }}</td>
+                                    <td>{{ souscription.numeroTelephone }}</td>
                                     <td>{{ souscription.nomCarte }}</td>
                                     <td>
                                         {% if souscription.statutCarte == 'Activated' %}
@@ -87,4 +85,20 @@
 
     </div>
 
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#exemple').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : true
+            })
+        })
+    </script>
 {% endblock %}

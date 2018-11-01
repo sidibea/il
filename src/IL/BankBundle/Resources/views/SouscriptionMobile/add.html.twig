@@ -44,41 +44,42 @@
                             <div class="col-md-7">
 
                                 <div class="form-group">
-                                    <label for="nom_carte">Numero de la carte prepaye</label>
+                                    <label for="nom_carte">Numero de la carte prepayé</label>
                                     {{ form_widget(form.numeroCarte, {'attr': {'class': 'form-control ', 'maxlength': '16', 'onkeypress': 'return onlyNos(event,this);',  'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Type de carte</label>
-                                    {{ form_widget(form.typeCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.typeCarte, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '', 'readonly':'readonly'  }}) }}
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label for="nom_carte">Mois d'expiration</label>
-                                        {{ form_widget(form.moisExpiration, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                        {{ form_widget(form.moisExpiration, {'attr': {'class': 'form-control ', 'maxlength': '2', 'id': 'nom_carte', 'placeholder': '' }}) }}
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="nom_carte">Annee d'expiration</label>
-                                        {{ form_widget(form.anneeExpiration, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                        <label for="nom_carte">Année d'expiration</label>
+                                        {{ form_widget(form.anneeExpiration, {'attr': {'class': 'form-control ', 'maxlength': '4',  'id': 'nom_carte', 'placeholder': '' }}) }}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Statut carte</label>
-                                    {{ form_widget(form.statutCarte, {'attr': {'class': 'form-control ', 'value': 'Activated', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.statutCarte, {'attr': {'class': 'form-control ', 'value': 'Activated', 'placeholder': '', 'readonly':'readonly' }}) }}
                                 </div>
                                 <div class="form-group">
                                     <label for="nom_carte">Statut de Liaison</label>
-                                    {{ form_widget(form.statutLiaison, {'attr': {'class': 'form-control ', 'value': 'Pending', 'id': 'nom_carte', 'placeholder': '' }}) }}
+                                    {{ form_widget(form.statutLiaison, {'attr': {'class': 'form-control ', 'value': 'Pending', 'id': 'nom_carte', 'placeholder': '' , 'readonly':'readonly'}}) }}
                                 </div>
+
 
 
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="nom_carte">Numero de telephone</label>
-                                    {{ form_widget(form.numeroTelephone, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'onkeypress': 'return onlyNos(event,this);', 'placeholder': '' }}) }}
+                                    <label for="nom_carte">Numero de téléphone</label>
+                                    {{ form_widget(form.numeroTelephone, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'maxlength': '8', 'onkeypress': 'return onlyNos(event,this);', 'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
-                                    <label for="nom_carte">Operateur Mobile</label>
+                                    <label for="nom_carte">Opérateur Mobile</label>
                                     {{ form_widget(form.operateur, {'attr': {'class': 'form-control ', 'id': 'nom_carte', 'placeholder': '' }}) }}
                                 </div>
                                 <div class="form-group">
@@ -160,7 +161,7 @@
 
                 else { return true; }
 
-                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123 || charCode == 32))
 
                     return true;
 
@@ -215,6 +216,21 @@
         }
 
         jQuery(function($) {
+
+            $("#il_corebundle_souscriptionmobile_anneeExpiration").change(function() {
+
+                if($('#il_corebundle_souscriptionmobile_anneeExpiration').val() < (new Date()).getFullYear())
+                    alert("Annee d'expiration invalide");
+
+            });
+
+            $("#il_corebundle_souscriptionmobile_moisExpiration").change(function() {
+
+                if($('#il_corebundle_souscriptionmobile_moisExpiration').val() > 12)
+                    alert("Mois d'expiration invalide");
+
+            });
+
             $( "#il_corebundle_souscriptionmobile_numeroCarte" ).change(function() {
                 var numeroCarte = $('#il_corebundle_souscriptionmobile_numeroCarte').val();
 
@@ -235,6 +251,8 @@
 
             if(numeroTelephone.substring(0, 1) == '7' || numeroTelephone.substring(0, 1) == '9')
                 $('#il_corebundle_souscriptionmobile_operateur').val('Orange ML');
+            if(numeroTelephone.substring(0, 1) == '6' || numeroTelephone.substring(0, 1) == '5')
+                $('#il_corebundle_souscriptionmobile_operateur').val('Malitel');
 
         });
 

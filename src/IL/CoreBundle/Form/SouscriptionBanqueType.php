@@ -3,24 +3,44 @@
 namespace IL\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SouscriptionBanqueType extends AbstractType
 {
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $mois = [];
+        $i = 1;
+        while($i <= 12){
+            array_push($mois, $i);
+            $i++;
+
+
+        }
+        $current_year = date('Y');
+        $date_range = range($current_year, $current_year+10);
+
+
         $builder
             ->add('cb2c')
             ->add('c2cb')
             ->add('typeCompte')
             ->add('numeroCompte')
             ->add('numeroCarte')
-            ->add('moisExpiration')
-            ->add('anneeExpiration')
+            ->add('moisExpiration', ChoiceType::class, [
+                'choices' => $mois
+            ])
+            ->add('numeroTelephone')
+
+            ->add('anneeExpiration', ChoiceType::class, [
+                'choices' => $date_range
+            ])
             ->add('typeCarte')
             ->add('statutLiaison')
             ->add('statutCarte')
