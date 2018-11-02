@@ -64,6 +64,12 @@
                     </ul>
                 </li>
 
+                <h3 class="menu-title">Transferts</h3><!-- /.menu-title -->
+
+                <li class="active">
+                    <a href="{{ path('il_bank_transfert') }}"> <i class="menu-icon fa fa-star"></i>Liste des transferts </a>
+                </li>
+
 
                 <h3 class="menu-title">Analytiques</h3><!-- /.menu-title -->
                 <li class="active">
@@ -181,18 +187,22 @@
     <div class="content mt-3">
 
 
-            {% block message %}
-                {% for flashMessage in app.session.flashbag.get('success') %}
-                    <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
-                        <span class="badge badge-pill badge-warning">Felicitation</span>
-                        {{ flashMessage }}.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
+            <div class="row">
+                {% block message %}
+                    {% for flashMessage in app.session.flashbag.get('success') %}
+                       <div class="col-md-12">
+                           <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                               <span class="badge badge-pill badge-warning">Felicitation</span>
+                               {{ flashMessage }}.
+                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                   <span aria-hidden="true">×</span>
+                               </button>
+                           </div>
+                       </div>
 
-                {% endfor %}
-            {% endblock %}
+                    {% endfor %}
+                {% endblock %}
+            </div>
 
 
 

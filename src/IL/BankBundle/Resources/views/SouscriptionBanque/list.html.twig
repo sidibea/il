@@ -51,11 +51,12 @@
                             <tbody>
                             {% for souscription in souscriptions %}
                                 <tr>
-                                    <td>{{ souscription.numeroCompte }}</td>
+                                    <td>{{ souscription.numeroCompte | slice(0, 4)}} **** **** *{{ souscription.numeroCompte | slice(0, 3)}}</td>
                                     <td>{{ souscription.typeCompte }}</td>
                                     <td>{{ souscription.numeroCarte }}</td>
-                                    <td>{{ souscription.numeroTelephone }}</td>
                                     <td>{{ souscription.nomCarte }}</td>
+                                    <td>{{ souscription.numeroTelephone }}</td>
+
                                     <td>
                                         {% if souscription.statutCarte == 'Activated' %}
                                             <button type="button" class="btn btn-outline-success btn-sm">{{ souscription.StatutCarte }}</button>
@@ -75,9 +76,6 @@
                             {% endfor %}
                             </tbody>
                         </table>
-
-
-
                     </div>
                 </div>
             </div>
@@ -91,7 +89,7 @@
 {% block scripts %}
     <script type="text/javascript">
         jQuery(function ($) {
-            $('#exemple').DataTable({
+            $('#datatable').DataTable({
                 'paging'      : true,
                 'lengthChange': true,
                 'searching'   : true,

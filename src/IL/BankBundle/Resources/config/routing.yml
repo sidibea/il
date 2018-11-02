@@ -14,6 +14,9 @@ il_bank_souscription_mobile_new:
 il_bank_souscription_mobile_edit:
     path:     /souscription-mobile/edit/{id}
     defaults: { _controller: ILBankBundle:SouscriptionMobile:edit }
+il_bank_souscription_resilier:
+    path:     /souscription-mobile/resilier/{id}
+    defaults: { _controller: ILBankBundle:SouscriptionMobile:resilier }
 
 
 il_bank_souscription_banque_list:
@@ -33,3 +36,6 @@ il_bank_souscription_banque_resiliation_list:
 il_bank_report:
     path:     /report-manager
     defaults: { _controller: ILBankBundle:SouscriptionBanque:report }
+il_bank_transfert:
+    path:     /transfert
+    defaults: { _controller: ILBankBundle:Transfert:transfert }

@@ -40,15 +40,29 @@ class SouscriptionMobileController extends Controller
             $em->persist($souscription);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'La liaison  a bien été éffectuée.');
+            $request->getSession()->getFlashBag()->add('success', 'La liaison  a bien été éffectuée.');
 
-            return $this->redirect($this->generateUrl('il_bank_souscription_mobile_edit', ['id' => $souscription->getId()]));
+            return $this->redirect($this->generateUrl('il_bank_souscription_mobile_list'));
         }
 
 
         return $this->render('ILBankBundle:SouscriptionMobile:add.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    public function resilierAction($id, Request $request)
+    {
+        $em= $this->getDoctrine()->getManager();
+        $souscription = $em->getRepository('ILCoreBundle:SouscriptionMobile')->find($id);
+
+        $souscription->setStatutLiaison('Resiliated');
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('success', 'La liaison  a bien été résiliée.');
+
+        return $this->redirect($this->generateUrl('il_bank_souscription_mobile_resiliation_list'));
+
     }
 
     public function editAction($id, Request $request)
@@ -63,9 +77,9 @@ class SouscriptionMobileController extends Controller
 
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'La liaison  a bien été éffectuée.');
+            $request->getSession()->getFlashBag()->add('success', 'La liaison  a bien été éffectuée.');
 
-            return $this->redirect($this->generateUrl('il_bank_souscription_mobile_edit', ['id' => $souscription->getId()]));
+            return $this->redirect($this->generateUrl('il_bank_souscription_mobile_list'));
         }
 
 

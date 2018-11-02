@@ -3,7 +3,11 @@
 namespace IL\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateIntervalType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,20 +24,26 @@ class SouscriptionMobileType extends AbstractType
             array_push($mois, $i);
             $i++;
 
-
         }
         $current_year = date('Y');
         $date_range = range($current_year, $current_year+10);
 
+       // dump($date_range); exit;
+
+
+
         $builder
             ->add('operateur')
             ->add('numeroCarte')
-            ->add('moisExpiration', ChoiceType::class, [
-                'choices' => $mois
-            ])
-            ->add('anneeExpiration', ChoiceType::class, [
-                'choices' => $date_range
-            ])
+            ->add('moisExpiration', ChoiceType::class, array(
+                'choices' => range(1, 31),
+
+
+            ))
+            ->add('anneeExpiration', ChoiceType::class, array(
+                'choices' => $this->getYears(2018)
+
+            ))
             ->add('typeCarte')
             ->add('statutLiaison')
             ->add('statutCarte')
@@ -63,6 +73,13 @@ class SouscriptionMobileType extends AbstractType
     public function getBlockPrefix()
     {
         return 'il_corebundle_souscriptionmobile';
+    }
+
+    private function getYears($min, $max='current')
+    {
+        $years = range($min, ($max === 'current' ? date('Y')+10 : $max));
+
+        return array_combine($years, $years);
     }
 
 

@@ -3,6 +3,7 @@
 namespace IL\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SouscriptionMobile
@@ -30,7 +31,12 @@ class SouscriptionMobile
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 16,
+     *      max = 16,
+     *      minMessage = "Le numero de la carte ne doit p {{ limit }} caracteres",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      * @ORM\Column(name="numero_carte", type="string", length=255)
      */
     private $numeroCarte;
@@ -54,7 +60,7 @@ class SouscriptionMobile
     /**
      * @var int
      *
-     * @ORM\Column(name="annee_expiration", type="integer")
+     * @ORM\Column(name="annee_expiration", type="string", length=255)
      */
     private $anneeExpiration;
 

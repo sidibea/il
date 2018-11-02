@@ -54,14 +54,14 @@
                                 <tr>
                                     <td>{{ souscription.id }}</td>
                                     <td>{{ souscription.operateur }}</td>
-                                    <td>{{ souscription.numeroCarte }}</td>
+                                    <td>{{ souscription.numeroCarte | slice(0, 4)  }} **** **** *{{ souscription.numeroCarte | slice(0, 3)  }}</td>
                                     <td>{{ souscription.nomCarte }}</td>
                                     <td>{{ souscription.numeroTelephone }}</td>
                                     <td>
                                         {% if souscription.statutCarte == 'Activated' %}
-                                            <button type="button" class="btn btn-outline-success btn-sm">{{ souscription.StatutCarte }}</button>
+                                            <span class="btn btn-outline-success btn-sm">{{ souscription.StatutCarte }}</span>
                                         {% elseif souscription.statutCarte == 'Pending' %}
-                                            <button type="button" class="btn btn-outline-warning btn-sm">{{ souscription.StatutCarte }}</button>
+                                            <span  class="btn btn-outline-warning btn-sm">{{ souscription.StatutCarte }}</span>
 
                                         {% endif %}
 

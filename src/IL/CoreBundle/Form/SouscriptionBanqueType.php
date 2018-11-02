@@ -4,6 +4,7 @@ namespace IL\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateIntervalType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,14 +34,18 @@ class SouscriptionBanqueType extends AbstractType
             ->add('typeCompte')
             ->add('numeroCompte')
             ->add('numeroCarte')
-            ->add('moisExpiration', ChoiceType::class, [
-                'choices' => $mois
-            ])
+            ->add('moisExpiration', ChoiceType::class, array(
+                'choices' => range(1, 31),
+
+
+            ))
+            ->add('anneeExpiration', ChoiceType::class, array(
+                'choices' => $this->getYears(2018)
+
+            ))
             ->add('numeroTelephone')
 
-            ->add('anneeExpiration', ChoiceType::class, [
-                'choices' => $date_range
-            ])
+
             ->add('typeCarte')
             ->add('statutLiaison')
             ->add('statutCarte')
@@ -62,6 +67,13 @@ class SouscriptionBanqueType extends AbstractType
     public function getBlockPrefix()
     {
         return 'il_corebundle_souscriptionbanque';
+    }
+
+    private function getYears($min, $max='current')
+    {
+        $years = range($min, ($max === 'current' ? date('Y')+10 : $max));
+
+        return array_combine($years, $years);
     }
 
 

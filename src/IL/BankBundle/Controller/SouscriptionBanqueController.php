@@ -93,7 +93,9 @@ class SouscriptionBanqueController extends Controller
 
         if($request->getMethod() == 'GET'){
 
-            if($request->get('operateur') != null){
+            if($request->get('operateur') != null && $request->get('type_transaction') != null && $request->get('type_transaction') == null){
+                //dump('C2W'); exit;
+             //   $souscription = $em->getRepository('ILCoreBundle:SouscriptionMobile')->find
 
             }
         }
